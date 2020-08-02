@@ -26,17 +26,19 @@ def check_letter(word, letters):
 
     return(guess.strip())
 
-def get_guess(letters):
+def get_guess(letters, current_letters):
     
     while True:
         guess = input("Enter the letter you would like to guess: ")
     
         if not guess.isalpha() or len(guess) != 1:
             print("Please enter a letter.")
+            print(current_letters)
             continue
 
         if guess in letters:
             print("This letter has already been guessed. Please select a new letter")
+            print(current_letters)
             continue
             
         return guess.lower()
@@ -51,7 +53,7 @@ def main():
     
     while '_' in current_letters:
         print(current_letters)
-        guessed_letter = get_guess(letters)
+        guessed_letter = get_guess(letters, current_letters)
         letters.append(guessed_letter)
         current_letters = check_letter(chosen_word, letters)
 
