@@ -43,6 +43,9 @@ def get_guess(letters, current_letters):
             
         return guess.lower()
 
+def print_hangman(letters):
+    return
+
 def main():
 
     letters = []
@@ -56,6 +59,7 @@ def main():
         guessed_letter = get_guess(letters, current_letters)
         letters.append(guessed_letter)
         current_letters = check_letter(chosen_word, letters)
+        print_hangman(letters)
 
     print("You guessed the word! The word was \"" + chosen_word + "\"!")
 
